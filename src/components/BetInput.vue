@@ -3,13 +3,16 @@
     <div class="amount-group group">
       <div class="grid amount-group-top">
         <AmountAdjustment class="min" value='MIN' v-model="amount" :adjustTo="MIN_AMOUNT" :disabled="placed"/>
-        <input
-          class="amount number-input"
-          type="text"
-          v-model="amount"
-          :disabled="placed"
-          @blur="handleAmountBlur"
-        >
+        <div class="amount-input grid">
+          <span class="yen-sign">¥</span>
+          <input
+            class="amount number-input"
+            type="text"
+            v-model="amount"
+            :disabled="placed"
+            @blur="handleAmountBlur"
+          >
+        </div>
         <AmountAdjustment
           class="half" value='1/2' v-model="amount" :adjustTo="Number(amount) / 2" :disabled="placed"
         />
@@ -208,9 +211,17 @@ form {
       }
     }
 
-    .amount {
+    .amount-input {
       grid-column: 2 / span 3;
       grid-row: 1 / span 2;
+      grid-template-columns: 30% 40%;
+
+      .yen-sign {
+        font-size: 20px;
+        font-weight: bold;
+        color: #B2CDE7;
+        align-self: center;
+      }
     }
   }
 
@@ -309,7 +320,7 @@ form {
     .amount-group-top {
       grid-template-columns: repeat(6, 50px);
 
-      .amount {
+      .amount-input {
         grid-column: 2 / span 4;
         grid-row: 1 / span 2;
       }
