@@ -335,6 +335,7 @@ form {
     .defuse-at-group-top {
       grid-template-columns: 156px 30px 89px 30px;
       grid-template-rows: 30px;
+      border-bottom: none;
 
       .defuse-at-text {
         align-self: center;
